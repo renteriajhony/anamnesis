@@ -25,63 +25,53 @@ class AnamnesisPage extends StatelessWidget {
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
-      body: Column(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: CustomPrimaryButton(
+          onPressed: () {
+            formProvider.navigateToNextStage();
+          },
+          text: 'Siguiente',
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: ListView(
+        shrinkWrap: true,
+        padding: const EdgeInsets.only(left: 22, right: 22, top: 40),
         children: [
-          Container(
-            width: double.infinity,
-            color: Theme.of(context).colorScheme.surface,
-            padding: EdgeInsets.only(left: 22, right: 22, top: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Completa la siguiente información',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontFamily: 'Futura',
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 16 * 0.04,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                RichText(
-                  text: TextSpan(
-                    text: 'Todos los campos son obligatorios ?',
+          Text(
+            'Completa la siguiente información',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontFamily: 'Futura',
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
+              letterSpacing: 16 * 0.04,
+            ),
+          ),
+          const SizedBox(height: 10),
+          RichText(
+            text: TextSpan(
+              text: 'Todos los campos son obligatorios',
+              style: TextStyle(
+                fontFamily: "Futura Bk BT",
+                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                    text: '*',
                     style: TextStyle(
-                      fontFamily: "Futura Bk BT",
-                      fontSize: 16.0,
                       fontWeight: FontWeight.w400,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                          text: '*',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            fontFamily: 'Futura',
-                            color: Theme.of(context).colorScheme.error,
-                          )),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 25),
-                formProvider.currentPage == 0
-                    ? AnamnesisStep1()
-                    : AnamnesisStep2(),
+                      fontSize: 16,
+                      fontFamily: 'Futura',
+                      color: Theme.of(context).colorScheme.error,
+                    )),
               ],
             ),
           ),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.only(left: 22, right: 22, bottom: 22),
-            child: CustomPrimaryButton(
-              onPressed: () {
-                formProvider.navigateToNextStage();
-              },
-              text: 'Siguiente',
-            ),
-          ),
+          const SizedBox(height: 25),
+          formProvider.currentPage == 0 ? AnamnesisStep1() : AnamnesisStep2(),
         ],
       ),
     );

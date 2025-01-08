@@ -16,7 +16,7 @@ class AnamnesisStep2 extends StatelessWidget {
         RichText(
           maxLines: 2,
           text: TextSpan(
-            text: '¿Ha tenido operaciones? ¿Cuáles y hace cuánto \ntiempo?',
+            text: '¿Tiene dolores frecuentes y no ha consultado al médico?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -37,18 +37,18 @@ class AnamnesisStep2 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        SizedBox(
-          width: 300,
-          child: CustomEditText(controller: formProvider.painController),
+        CustomToggleButton(
+          controller: formProvider.painController,
+          isSelected: formProvider.selectedlistObserver,
         ),
         SizedBox(
           height: 16,
         ),
         RichText(
-          maxLines: 2,
+          maxLines: 4,
           text: TextSpan(
             text:
-                '¿Tiene o tuvo alguna enfermedad diagnosticada\n o tratada por un médico?',
+                '¿Le ha dicho al médico que tiene algún problema en los huesos o en las articulaciones, que pueda desfavorecer con el ejercicio?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -69,9 +69,9 @@ class AnamnesisStep2 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        SizedBox(
-          width: 300,
-          child: CustomEditText(controller: formProvider.toldController),
+        CustomToggleButton(
+          controller: formProvider.toldController,
+          isSelected: formProvider.selectedlistObserver2,
         ),
       ],
     );

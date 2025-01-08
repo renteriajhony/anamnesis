@@ -9,10 +9,31 @@ class FormProvider with ChangeNotifier {
     ..text = 'No';
   final TextEditingController toldController = TextEditingController()
     ..text = 'No';
+
+  GlobalKey<FormState> operationsFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> diseaseFormKey = GlobalKey<FormState>();
+
   int numPages = 2;
   int currentPage = 0;
   bool isPageValid = false;
   bool isNavegationDone = false;
+
+  List<Widget> listObserver = <Widget>[
+    Text('Si'),
+    Text('No'),
+  ];
+
+  final List<bool> selectedlistObserver = <bool>[false, true];
+  final List<bool> selectedlistObserver2 = <bool>[false, true];
+
+  void changeToggleSelectec(
+      int index, TextEditingController controller, List<bool> selectedlist) {
+    for (int i = 0; i < selectedlist.length; i++) {
+      selectedlist[i] = i == index;
+      controller.text = (listObserver[index] as Text).data ?? '';
+    }
+    notifyListeners();
+  }
 
   bool validateForm() {
     if (operationsController.text.isNotEmpty &&
@@ -22,8 +43,6 @@ class FormProvider with ChangeNotifier {
       isPageValid = false;
     }
     notifyListeners();
-    print('isPageValid: $isPageValid');
-
     return isPageValid;
   }
 
@@ -35,6 +54,7 @@ class FormProvider with ChangeNotifier {
           : isNavegationDone = false;
       notifyListeners();
     } else {
+      // Todo: Call result here!
       log('Result form', name: 'Show Resulht');
     }
   }

@@ -16,7 +16,7 @@ class AnamnesisStep1 extends StatelessWidget {
         RichText(
           maxLines: 2,
           text: TextSpan(
-            text: '¿Ha tenido operaciones? ¿Cuáles y hace cuánto \ntiempo?',
+            text: '¿Ha tenido operaciones? ¿Cuáles y hace cuánto tiempo?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -37,9 +37,9 @@ class AnamnesisStep1 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        SizedBox(
-          width: 300,
-          child: CustomEditText(controller: formProvider.operationsController),
+        CustomEditText(
+          controller: formProvider.operationsController,
+          key: formProvider.operationsFormKey,
         ),
         SizedBox(
           height: 16,
@@ -48,7 +48,7 @@ class AnamnesisStep1 extends StatelessWidget {
           maxLines: 2,
           text: TextSpan(
             text:
-                '¿Tiene o tuvo alguna enfermedad diagnosticada\n o tratada por un médico?',
+                '¿Tiene o tuvo alguna enfermedad diagnosticada o tratada por un médico?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -69,9 +69,9 @@ class AnamnesisStep1 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        SizedBox(
-          width: 300,
-          child: CustomEditText(controller: formProvider.diseaseController),
+        CustomEditText(
+          controller: formProvider.diseaseController,
+          key: formProvider.diseaseFormKey,
         ),
       ],
     );
