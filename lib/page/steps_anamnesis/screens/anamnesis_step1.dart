@@ -2,10 +2,10 @@ import 'package:anamnesis/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../provider/form_provider.dart';
+import '../../../provider/form_provider.dart';
 
-class AnamnesisStep2 extends StatelessWidget {
-  const AnamnesisStep2({super.key});
+class AnamnesisStep1 extends StatelessWidget {
+  const AnamnesisStep1({super.key});
   @override
   Widget build(BuildContext context) {
     final formProvider = Provider.of<FormProvider>(context, listen: true);
@@ -16,7 +16,7 @@ class AnamnesisStep2 extends StatelessWidget {
         RichText(
           maxLines: 2,
           text: TextSpan(
-            text: '¿Tiene dolores frecuentes y no ha consultado al médico?',
+            text: '¿Ha tenido operaciones? ¿Cuáles y hace cuánto tiempo?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -37,18 +37,18 @@ class AnamnesisStep2 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        CustomToggleButton(
-          controller: formProvider.painController,
-          isSelected: formProvider.selectedlistObserver,
+        CustomEditText(
+          controller: formProvider.operationsController,
+          key: formProvider.operationsFormKey,
         ),
         SizedBox(
           height: 16,
         ),
         RichText(
-          maxLines: 4,
+          maxLines: 2,
           text: TextSpan(
             text:
-                '¿Le ha dicho al médico que tiene algún problema en los huesos o en las articulaciones, que pueda desfavorecer con el ejercicio?',
+                '¿Tiene o tuvo alguna enfermedad diagnosticada o tratada por un médico?',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -69,9 +69,9 @@ class AnamnesisStep2 extends StatelessWidget {
         SizedBox(
           height: 16,
         ),
-        CustomToggleButton(
-          controller: formProvider.toldController,
-          isSelected: formProvider.selectedlistObserver2,
+        CustomEditText(
+          controller: formProvider.diseaseController,
+          key: formProvider.diseaseFormKey,
         ),
       ],
     );

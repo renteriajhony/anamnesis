@@ -29,6 +29,7 @@ class CustomThenData {
           size: 24,
         ),
       ),
+      dialogBackgroundColor: const Color(0xFF10121F),
       useMaterial3: true,
     );
   }

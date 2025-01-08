@@ -1,9 +1,7 @@
-import 'package:anamnesis/custom/custom.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'page/anamnesis_page.dart';
-import 'provider/form_provider.dart';
+import 'anamnesis.dart';
 
 void main() {
   runApp(
@@ -19,10 +17,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Prueba Anamnesis App',
       theme: CustomThenData.getThemeData(),
       home: const AnamnesisPage(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        AnamnesisPage.routeName: (context) => const AnamnesisPage(),
+        AnamnesisResultPage.routeName: (context) => const AnamnesisResultPage(),
+      },
+      initialRoute: AnamnesisPage.routeName,
     );
   }
 }

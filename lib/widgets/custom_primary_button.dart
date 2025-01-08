@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../custom/custom.dart';
-import '../provider/form_provider.dart';
+import '../anamnesis.dart';
 
 class CustomPrimaryButton extends StatelessWidget {
   const CustomPrimaryButton({

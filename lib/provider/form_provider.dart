@@ -1,6 +1,7 @@
-import 'dart:developer';
-
+import 'package:anamnesis/helpers/dialog_confirm.dart';
 import 'package:flutter/material.dart';
+
+import '../page/page.dart';
 
 class FormProvider with ChangeNotifier {
   final TextEditingController operationsController = TextEditingController();
@@ -46,7 +47,7 @@ class FormProvider with ChangeNotifier {
     return isPageValid;
   }
 
-  void navigateToNextStage() {
+  void navigateToNextStage(BuildContext context) {
     if (currentPage < numPages - 1 && validateForm()) {
       currentPage++;
       currentPage == numPages - 1
@@ -54,8 +55,15 @@ class FormProvider with ChangeNotifier {
           : isNavegationDone = false;
       notifyListeners();
     } else {
-      // Todo: Call result here!
-      log('Result form', name: 'Show Resulht');
+      DialogConfirm(
+        title: '',
+        content: 'Tu información sera guardada, ¿Deseas continuar?',
+        textAfirmitive: 'Aceptar',
+        textNegative: 'Cancelar',
+        onAfirmitive: () {
+          Navigator.of(context).popAndPushNamed(AnamnesisResultPage.routeName);
+        },
+      ).show(context);
     }
   }
 

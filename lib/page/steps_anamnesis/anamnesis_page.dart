@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../provider/form_provider.dart';
-import '../screens/screens.dart';
-import '../widgets/widgets.dart';
+import '../../provider/form_provider.dart';
+import 'screens/screens.dart';
+import '../../widgets/widgets.dart';
 
 class AnamnesisPage extends StatelessWidget {
   const AnamnesisPage({super.key});
+  static const String routeName = '/anamnesis_steps';
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class AnamnesisPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: CustomPrimaryButton(
           onPressed: () {
-            formProvider.navigateToNextStage();
+            formProvider.navigateToNextStage(context);
           },
           text: 'Siguiente',
         ),
