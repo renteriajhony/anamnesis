@@ -26,72 +26,67 @@ class AnamnesisPage extends StatelessWidget {
           style: Theme.of(context).appBarTheme.titleTextStyle,
         ),
       ),
-      body: Container(
-          width: double.infinity,
-          color: Theme.of(context).colorScheme.surface,
-          padding: const EdgeInsets.symmetric(horizontal: 22),
-          child: Stack(
-            children: [
-              Positioned(
-                top: 50,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Completa la siguiente información',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'Futura',
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 16 * 0.04,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Todos los campos son obligatorios ?',
-                        style: TextStyle(
-                          fontFamily: "Futura Bk BT",
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: '*',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                fontFamily: 'Futura',
-                                color: Theme.of(context).colorScheme.error,
-                              )),
-                        ],
-                      ),
-                    ),
-                  ],
+      body: Column(
+        children: [
+          Container(
+            width: double.infinity,
+            // height: double.infinity * 90,
+            color: Theme.of(context).colorScheme.surface,
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Completa la siguiente información',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontFamily: 'Futura',
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 16 * 0.04,
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 130,
-                child: AnamnesisStep1(),
-              ),
-              Positioned(
-                bottom: 30,
-                right: 0,
-                left: 0,
-                child: CustomPrimaryButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AnamnesisStep2()),
-                    );
-                  },
-                  text: 'Siguiente',
-                  isEnabled: isEnabled,
+                const SizedBox(height: 10),
+                RichText(
+                  text: TextSpan(
+                    text: 'Todos los campos son obligatorios ?',
+                    style: TextStyle(
+                      fontFamily: "Futura Bk BT",
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                          text: '*',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            fontFamily: 'Futura',
+                            color: Theme.of(context).colorScheme.error,
+                          )),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )),
+                AnamnesisStep1(),
+              ],
+            ),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(left: 22, right: 22, bottom: 22),
+            child: CustomPrimaryButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AnamnesisStep2()),
+                );
+              },
+              text: 'Siguiente',
+              isEnabled: isEnabled,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
