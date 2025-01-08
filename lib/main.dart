@@ -1,10 +1,17 @@
 import 'package:anamnesis/custom/custom.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'page/anamnesis_page.dart';
+import 'provider/form_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => FormProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

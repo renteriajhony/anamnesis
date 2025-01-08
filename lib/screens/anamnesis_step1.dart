@@ -1,13 +1,14 @@
 import 'package:anamnesis/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/form_provider.dart';
 
 class AnamnesisStep1 extends StatelessWidget {
   const AnamnesisStep1({super.key});
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller1 = TextEditingController();
-    TextEditingController controller2 = TextEditingController();
-
+    final formProvider = Provider.of<FormProvider>(context, listen: true);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,14 +35,14 @@ class AnamnesisStep1 extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 16,
         ),
         SizedBox(
           width: 300,
-          child: CustomEditText(controller: controller1),
+          child: CustomEditText(controller: formProvider.operationsController),
         ),
         SizedBox(
-          height: 15,
+          height: 16,
         ),
         RichText(
           maxLines: 2,
@@ -66,11 +67,11 @@ class AnamnesisStep1 extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 16,
         ),
         SizedBox(
           width: 300,
-          child: CustomEditText(controller: controller2),
+          child: CustomEditText(controller: formProvider.diseaseController),
         ),
       ],
     );

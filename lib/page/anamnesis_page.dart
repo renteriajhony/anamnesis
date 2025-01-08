@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/form_provider.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
@@ -8,16 +10,13 @@ class AnamnesisPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isEnabled = true;
+    final formProvider = Provider.of<FormProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AnamnesisStep2()),
-            );
+            formProvider.navigateToBackStage();
           },
         ),
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
@@ -30,9 +29,8 @@ class AnamnesisPage extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            // height: double.infinity * 90,
             color: Theme.of(context).colorScheme.surface,
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+            padding: EdgeInsets.only(left: 22, right: 22, top: 40),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -67,7 +65,10 @@ class AnamnesisPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                AnamnesisStep1(),
+                const SizedBox(height: 25),
+                formProvider.currentPage == 0
+                    ? AnamnesisStep1()
+                    : AnamnesisStep2(),
               ],
             ),
           ),
@@ -76,13 +77,9 @@ class AnamnesisPage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 22, right: 22, bottom: 22),
             child: CustomPrimaryButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AnamnesisStep2()),
-                );
+                formProvider.navigateToNextStage();
               },
               text: 'Siguiente',
-              isEnabled: isEnabled,
             ),
           ),
         ],

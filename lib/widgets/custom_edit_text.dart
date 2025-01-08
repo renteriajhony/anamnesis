@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/form_provider.dart';
 
 class CustomEditText extends StatelessWidget {
   const CustomEditText({super.key, required this.controller});
@@ -7,9 +10,13 @@ class CustomEditText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formProvider = Provider.of<FormProvider>(context, listen: false);
     return TextField(
       maxLines: 1,
       controller: controller,
+      onChanged: (value) {
+        formProvider.validateForm();
+      },
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
