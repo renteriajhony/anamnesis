@@ -1,10 +1,8 @@
+import 'package:anamnesis/anamnesis.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../provider/form_provider.dart';
-import 'screens/screens.dart';
-import '../../widgets/widgets.dart';
-
+/// [AnamnesisPage] class is used to create an anamnesis page for the application.
+/// This page is used to display the anamnesis steps.
 class AnamnesisPage extends StatelessWidget {
   const AnamnesisPage({super.key});
   static const String routeName = '/anamnesis_steps';
@@ -27,7 +25,9 @@ class AnamnesisPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
+        padding: const EdgeInsets.symmetric(
+          horizontal: DimensionsDouble.twentyTwo,
+        ),
         child: CustomPrimaryButton(
           onPressed: () {
             formProvider.navigateToNextStage(context);
@@ -38,25 +38,28 @@ class AnamnesisPage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
         shrinkWrap: true,
-        padding: const EdgeInsets.only(left: 22, right: 22, top: 40),
+        padding: const EdgeInsets.only(
+            left: DimensionsDouble.twentyTwo,
+            right: DimensionsDouble.twentyTwo,
+            top: DimensionsDouble.forty),
         children: [
           Text(
             'Completa la siguiente información',
             textAlign: TextAlign.left,
             style: TextStyle(
               fontFamily: 'Futura',
-              fontSize: 16.0,
+              fontSize: DimensionsDouble.sixteen,
               fontWeight: FontWeight.w500,
-              letterSpacing: 16 * 0.04,
+              letterSpacing: DimensionsDouble.sixteen * 0.04,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: DimensionsDouble.ten),
           RichText(
             text: TextSpan(
               text: 'Todos los campos son obligatorios',
               style: TextStyle(
-                fontFamily: "Futura Bk BT",
-                fontSize: 16.0,
+                fontFamily: FontFamilt.futuraLtBt,
+                fontSize: DimensionsDouble.sixteen,
                 fontWeight: FontWeight.w400,
               ),
               children: <TextSpan>[
@@ -64,14 +67,14 @@ class AnamnesisPage extends StatelessWidget {
                     text: '*',
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      fontFamily: 'Futura',
+                      fontSize: DimensionsDouble.sixteen,
+                      fontFamily: FontFamilt.futuraLtBt,
                       color: Theme.of(context).colorScheme.error,
                     )),
               ],
             ),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: DimensionsDouble.twentyFive),
           formProvider.currentPage == 0 ? AnamnesisStep1() : AnamnesisStep2(),
         ],
       ),

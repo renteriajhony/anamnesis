@@ -1,9 +1,12 @@
+import 'package:anamnesis/tokens/domensions.dart';
 import 'package:anamnesis/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../provider/form_provider.dart';
 
+/// [AnamnesisStep1] class is used to create the first step of the anamnesis form.
+/// This step is used to ask the user if they have had any operations or diseases.
 class AnamnesisStep1 extends StatelessWidget {
   const AnamnesisStep1({super.key});
   @override
@@ -14,35 +17,35 @@ class AnamnesisStep1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RichText(
-          maxLines: 2,
+          maxLines: DimensionsInt.two,
           text: TextSpan(
             text: '¿Ha tenido operaciones? ¿Cuáles y hace cuánto tiempo?',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: DimensionsDouble.fourteen,
               fontWeight: FontWeight.w400,
-              fontFamily: 'Futura Bk BT',
+              fontFamily: FontFamilt.futuraBkBt,
             ),
             children: <TextSpan>[
               TextSpan(
                   text: '*',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: DimensionsDouble.sixteen,
                     fontWeight: FontWeight.w400,
-                    fontFamily: 'Futura Bk BT',
+                    fontFamily: FontFamilt.futuraBkBt,
                     color: Theme.of(context).colorScheme.error,
                   )),
             ],
           ),
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         CustomEditText(
           controller: formProvider.operationsController,
           key: formProvider.operationsFormKey,
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         RichText(
           maxLines: 2,
@@ -50,24 +53,24 @@ class AnamnesisStep1 extends StatelessWidget {
             text:
                 '¿Tiene o tuvo alguna enfermedad diagnosticada o tratada por un médico?',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: DimensionsDouble.fourteen,
               fontWeight: FontWeight.w400,
-              fontFamily: 'Futura Bk BT',
+              fontFamily: FontFamilt.futuraBkBt,
             ),
             children: <TextSpan>[
               TextSpan(
                   text: '*',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: DimensionsDouble.sixteen,
                     fontWeight: FontWeight.w400,
-                    fontFamily: 'Futura Bk BT',
+                    fontFamily: FontFamilt.futuraBkBt,
                     color: Theme.of(context).colorScheme.error,
                   )),
             ],
           ),
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         CustomEditText(
           controller: formProvider.diseaseController,

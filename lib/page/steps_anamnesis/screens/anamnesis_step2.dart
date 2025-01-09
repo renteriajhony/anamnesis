@@ -1,9 +1,9 @@
-import 'package:anamnesis/widgets/widgets.dart';
+import 'package:anamnesis/anamnesis.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../provider/form_provider.dart';
-
+/// [AnamnesisStep1] class is used to create the first step of the anamnesis form.
+/// This step is used to ask the user if they have had any operations or diseases.
 class AnamnesisStep2 extends StatelessWidget {
   const AnamnesisStep2({super.key});
   @override
@@ -14,60 +14,60 @@ class AnamnesisStep2 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         RichText(
-          maxLines: 2,
+          maxLines: DimensionsInt.two,
           text: TextSpan(
             text: '¿Tiene dolores frecuentes y no ha consultado al médico?',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: DimensionsDouble.fourteen,
               fontWeight: FontWeight.w400,
-              fontFamily: 'Futura Bk BT',
+              fontFamily: FontFamilt.futuraBkBt,
             ),
             children: <TextSpan>[
               TextSpan(
                   text: '*',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: DimensionsDouble.sixteen,
                     fontWeight: FontWeight.w400,
-                    fontFamily: 'Futura Bk BT',
+                    fontFamily: FontFamilt.futuraBkBt,
                     color: Theme.of(context).colorScheme.error,
                   )),
             ],
           ),
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         CustomToggleButton(
           controller: formProvider.painController,
           isSelected: formProvider.selectedlistObserver,
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         RichText(
-          maxLines: 4,
+          maxLines: DimensionsInt.four,
           text: TextSpan(
             text:
                 '¿Le ha dicho al médico que tiene algún problema en los huesos o en las articulaciones, que pueda desfavorecer con el ejercicio?',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: DimensionsDouble.fourteen,
               fontWeight: FontWeight.w400,
-              fontFamily: 'Futura Bk BT',
+              fontFamily: FontFamilt.futuraBkBt,
             ),
             children: <TextSpan>[
               TextSpan(
                   text: '*',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: DimensionsDouble.sixteen,
                     fontWeight: FontWeight.w400,
-                    fontFamily: 'Futura Bk BT',
+                    fontFamily: FontFamilt.futuraBkBt,
                     color: Theme.of(context).colorScheme.error,
                   )),
             ],
           ),
         ),
         SizedBox(
-          height: 16,
+          height: DimensionsDouble.sixteen,
         ),
         CustomToggleButton(
           controller: formProvider.toldController,

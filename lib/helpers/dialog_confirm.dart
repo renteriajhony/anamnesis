@@ -1,5 +1,6 @@
+import 'package:anamnesis/anamnesis.dart';
 import 'package:flutter/material.dart';
-
+/// [DialogConfirm] class is used to create a custom dialog confirm for the application.
 class DialogConfirm {
   DialogConfirm({
     required this.title,
@@ -8,11 +9,15 @@ class DialogConfirm {
     required this.textNegative,
     required this.onAfirmitive,
   });
-
+  /// [title] is used to display the dialog title.
   String title;
+  /// [content] is used to display the dialog content.
   String content;
+  /// [textAfirmitive] is used to display the dialog afirmitive button text.
   String textAfirmitive;
+  /// [textNegative] is used to display the dialog negative button text.
   String textNegative;
+  /// [onAfirmitive] is used to handle the afirmitive button press event.
   VoidCallback onAfirmitive;
 
   void show(BuildContext context) {
@@ -25,7 +30,7 @@ class DialogConfirm {
           content: Text(
             content,
             style: TextStyle(
-              fontFamily: "Futura",
+              fontFamily: FontFamilt.futura,
             ),
           ),
           actions: <Widget>[

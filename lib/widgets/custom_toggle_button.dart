@@ -4,10 +4,15 @@ import 'package:provider/provider.dart';
 import '../provider/form_provider.dart';
 import '../tokens/tokens.dart';
 
+/// [CustomToggleButton] class is used to create a custom toggle button for the application.
 class CustomToggleButton extends StatelessWidget {
   CustomToggleButton(
       {super.key, required this.controller, required this.isSelected});
+
+  /// [controller] is used to control the text field.
   TextEditingController controller;
+
+  /// [isSelected] is used to check if the button is selected.
   List<bool> isSelected;
 
   @override
@@ -18,14 +23,18 @@ class CustomToggleButton extends StatelessWidget {
       onPressed: (int index) {
         formProvider.changeToggleSelectec(index, controller, isSelected);
       },
-      borderRadius: const BorderRadius.all(Radius.circular(1)),
-      selectedBorderColor: CustomColors.toggleSelectedColor,
-      selectedColor: Colors.white,
-      fillColor: CustomColors.toggleSelectedColor.withValues(alpha: 0.05),
-      color: Colors.white,
+      borderRadius:
+          const BorderRadius.all(Radius.circular(DimensionsDouble.one)),
+      selectedBorderColor: CustomColors.selectedColor,
+      selectedColor: Theme.of(context).colorScheme.onSecondary,
+      fillColor: CustomColors.selectedColor
+          .withValues(alpha: DimensionsOpacity.zeroPointFive),
+      color: Theme.of(context).colorScheme.onSecondary,
       constraints: BoxConstraints(
-        minWidth: ((MediaQuery.of(context).size.width - 47) / 2),
-        minHeight: 40.0,
+        minWidth:
+            ((MediaQuery.of(context).size.width - DimensionsInt.fortySeven) /
+                DimensionsInt.two),
+        minHeight: DimensionsDouble.forty,
       ),
       isSelected: isSelected,
       children: formProvider.listObserver,

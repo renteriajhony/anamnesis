@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/form_provider.dart';
+import '../tokens/tokens.dart';
 
+/// [CustomEditText] class is used to create a custom edit text for the application.
 class CustomEditText extends StatelessWidget {
   const CustomEditText({super.key, required this.controller});
 
+  /// [controller] is used to control the text field.
   final TextEditingController controller;
 
   @override
@@ -14,38 +17,41 @@ class CustomEditText extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: TextField(
-        maxLines: 1,
+        maxLines: DimensionsInt.two,
         controller: controller,
         onChanged: (value) {
           formProvider.validateForm();
         },
         textInputAction: TextInputAction.next,
         style: TextStyle(
-          fontSize: 14,
+          fontSize: DimensionsDouble.fourteen,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.normal,
-          fontFamily: 'Futura Lt BT',
-          color: Colors.white,
+          fontFamily: FontFamilt.futuraLtBt,
+          color: Theme.of(context).colorScheme.onSecondary,
+          height: DimensionsDouble.one,
         ),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: const Color.fromARGB(255, 181, 196, 208), width: 1.0),
+                color: CustomColors.borderSide, width: DimensionsDouble.one),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: const Color.fromARGB(255, 97, 97, 168), width: 2.0),
+              color: CustomColors.selectedColor
+                  .withValues(alpha: DimensionsOpacity.fourTenth),
+              width: DimensionsDouble.two,
+            ),
           ),
           hintText: 'Escribe aquí?',
           hintStyle: TextStyle(
-            fontSize: 14,
+            fontSize: DimensionsDouble.fourteen,
             fontWeight: FontWeight.normal,
             fontStyle: FontStyle.italic,
-            fontFamily: 'Futura Lt BT',
-            color: const Color.fromARGB(255, 181, 196, 208),
+            fontFamily: FontFamilt.futuraLtBt,
+            color: CustomColors.borderSide,
           ),
           border: OutlineInputBorder(),
-          fillColor: Colors.red,
         ),
       ),
     );

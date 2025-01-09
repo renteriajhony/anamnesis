@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+/// [CustomThenData] class is used to create a custom theme data for the application.
 class CustomThenData {
   static ThemeData getThemeData() {
     return ThemeData(
