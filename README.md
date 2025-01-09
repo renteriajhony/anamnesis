@@ -1,6 +1,10 @@
 # Anamnesis
 
-Este es un proyecto Flutter que corresponde a una prueba tecnica
+Este es un proyecto Flutter que corresponde a una prueba tecnica.
+
+### Ver documentacion del proyecto
+https://anamnesis-doc.onrender.com
+
 ## Requisitos previos
 
 Para ejecutar esta aplicación Flutter, necesitas tener instalados los siguientes programas en tu máquina:
